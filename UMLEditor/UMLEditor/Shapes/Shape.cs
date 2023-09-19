@@ -279,7 +279,7 @@ namespace UMLEditor.Shapes
             Debug.Assert(Combinations != null);
 
             List<Combination> _TMPList = new List<Combination>();
-            _TMPList.AddRange(_Combinations);
+            _TMPList.AddRange(Combinations);
 
             foreach(var item in _TMPList){
                 item.Destroy();
