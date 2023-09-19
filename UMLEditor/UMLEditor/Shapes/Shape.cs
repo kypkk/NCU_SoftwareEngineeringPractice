@@ -278,9 +278,11 @@ namespace UMLEditor.Shapes
         {
             Debug.Assert(Combinations != null);
 
-            while (Combinations.Count > 0)
-            {
-                Combinations[0].Destroy();
+            List<Combination> _TMPList = new List<Combination>();
+            _TMPList.AddRange(_Combinations);
+
+            foreach(var item in _TMPList){
+                item.Destroy();
             }
         }
 
@@ -409,6 +411,12 @@ namespace UMLEditor.Shapes
                 {
                     Ports[i].Move(offsetX, offsetY);
                 }
+            }
+
+            if(Shapes == null || Shapes.Count == 0) return;
+
+            foreach (Shape child in Shapes){
+                child.Move(offsetX, offsetY);
             }
         }
 
