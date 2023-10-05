@@ -488,6 +488,10 @@ FodyWeavers.xsd
 
 # word
 *.docx
+*.doc
+
+# zip files
+*.zip
 
 ###############################
 ## C
