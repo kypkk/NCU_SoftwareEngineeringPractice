@@ -3,15 +3,29 @@ import { TestBookInfo } from "../__test__/TestingData";
 
 describe("Test Filter System", () => {
   let system = new FilterSystem();
-  system.setFilterWord("To");
-  system.setIgnoreCase(true);
-  system.process(TestBookInfo);
 
+  /**
+   * Tests:
+   * - BaseSystem.getUpdateMessage()
+   */
   test("Test:\n\tBaseSystem.getUpdateMessage() == Filter Update", () => {
     expect(system.getUpdateMessage()).toStrictEqual("Filter Update");
   });
 
-  test("Tests:\n\t1. FilterSystem.setFilterWord('To')\n\t2. FilterSystem.IgnoreCases(true)\n\t3. FilterSystem.process\n\t4. BaseSystem.getItems", () => {
+  /**
+   * Tests:
+   * - FilterSystem.setFilterWord('To')
+   * - FilterSystem.IgnoreCases(true)
+   * - FilterSystem.process
+   * - FilterSystem..getFilterWord()
+   * - BaseSystem.getItems()
+   */
+  test("Tests:\n\t1. FilterSystem.setFilterWord('To')\n\t2. FilterSystem.IgnoreCases(true)\n\t3. FilterSystem.process\n\t4. FilterSystem.getFilterWord()\n\t5. BaseSystem.getItems", () => {
+    system.setFilterWord("To");
+    system.setIgnoreCase(true);
+    system.process(TestBookInfo);
+    expect(system.isIgnoreCase()).toBeTruthy();
+    expect(system.getFilterWord()).toStrictEqual("To");
     expect(system.getItems()).toStrictEqual([
       {
         ISBN: "774-13-13326-60-1",
@@ -25,18 +39,16 @@ describe("Test Filter System", () => {
       },
     ]);
   });
-
-  test("Test:\n\tFilterSystem.isIgnoreCase() == true", () => {
-    expect(system.isIgnoreCase()).toStrictEqual(true);
-  });
-
-  test("Test:\n\tFilterSystem.FilterWord() == 'To'", () => {
-    expect(system.getFilterWord()).toStrictEqual("To");
-  });
-
+  /**
+   * Tests:
+   * - FilterSystem.IgnoreCases(false)
+   * - FilterSystem.process()
+   * - GetOnlyone object instead of two
+   */
   test("Test:\n\tWhen ignore case is false then TestBookInfo should have only one object", () => {
     system.setIgnoreCase(false);
     system.process(TestBookInfo);
+    expect(system.isIgnoreCase()).toBeFalsy();
     expect(system.getItems()).toStrictEqual([
       {
         ISBN: "774-13-13326-60-1",
