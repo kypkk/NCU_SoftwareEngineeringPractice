@@ -7,6 +7,10 @@ describe("Test Filter System", () => {
   system.setIgnoreCase(true);
   system.process(TestBookInfo);
 
+  test("Test:\n\tBaseSystem.getUpdateMessage() == Filter Update", () => {
+    expect(system.getUpdateMessage()).toStrictEqual("Filter Update");
+  });
+
   test("Tests:\n\t1. FilterSystem.setFilterWord('To')\n\t2. FilterSystem.IgnoreCases(true)\n\t3. FilterSystem.process\n\t4. BaseSystem.getItems", () => {
     expect(system.getItems()).toStrictEqual([
       {
@@ -21,9 +25,11 @@ describe("Test Filter System", () => {
       },
     ]);
   });
+
   test("Test:\n\tFilterSystem.isIgnoreCase() == true", () => {
     expect(system.isIgnoreCase()).toStrictEqual(true);
   });
+
   test("Test:\n\tFilterSystem.FilterWord() == 'To'", () => {
     expect(system.getFilterWord()).toStrictEqual("To");
   });
@@ -38,8 +44,5 @@ describe("Test Filter System", () => {
         author: "Danielle Steel",
       },
     ]);
-  });
-  test("Test:\n\tBaseSystem.getUpdateMessage() == Filter Update", () => {
-    expect(system.getUpdateMessage()).toStrictEqual("Filter Update");
   });
 });
