@@ -1,3 +1,6 @@
+/*
+    109201521 資工四 彭康彧
+*/
 #include <stdio.h>
 #include "awk_sem.h"
 
