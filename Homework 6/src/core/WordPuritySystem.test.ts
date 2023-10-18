@@ -1,3 +1,6 @@
+/**
+ * 資工四B 109201521 彭康彧
+ */
 import { WordPuritySystem } from "./WordPuritySystem";
 const { WordPurityService } = jest.createMockFromModule<
   typeof import("@externals/word-purity")

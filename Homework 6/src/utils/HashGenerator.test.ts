@@ -1,3 +1,6 @@
+/**
+ * 資工四B 109201521 彭康彧
+ */
 import { HashGenerator } from "./HashGenerator";
 describe("Test for the Hash Generator", () => {
   const generator = new HashGenerator();
